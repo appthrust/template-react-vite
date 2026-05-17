@@ -1,0 +1,13 @@
+node_modules
+dist
+build
+.output
+.next
+.env
+.env.local
+__pycache__
+*.pyc
+vendor/bundle
+.bundle
+log
+tmp
