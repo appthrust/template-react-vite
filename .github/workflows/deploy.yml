@@ -50,4 +50,8 @@ jobs:
           annotations: ${{ steps.meta.outputs.annotations }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          platforms: linux/amd64,linux/arm64
+          # appthrust.dev runtimes are linux/amd64. Adding linux/arm64 here builds
+          # under QEMU emulation and multiplied build time (166s -> 39s measured on
+          # a Next.js app after removing it). For an arm64 runtime, build natively
+          # on an ubuntu-24.04-arm runner and merge manifests instead.
+          platforms: linux/amd64
