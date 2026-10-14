@@ -15,7 +15,17 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
+  serving-smoke:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Verify production serving
+        run: scripts/test-serving.sh
   build:
+    needs: serving-smoke
     runs-on: ubuntu-latest
     permissions:
       contents: read

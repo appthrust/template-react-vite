@@ -6,7 +6,10 @@ build
 .output
 .next
 .env
-.env.local
+.env.*
+**/.env
+**/.env.*
+*.patch
 __pycache__
 *.pyc
 vendor/bundle
